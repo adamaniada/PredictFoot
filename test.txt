@@ -1,0 +1,59 @@
+Voici une liste de raccourcis clavier courants pour les systèmes d'exploitation Windows et macOS, ainsi que pour certaines applications populaires. Gardez à l'esprit que certains de ces raccourcis peuvent varier en fonction de la version du système d'exploitation ou de l'application que vous utilisez.
+
+Raccourcis clavier généraux :
+
+Note : Les raccourcis clavier peuvent varier en fonction de la disposition du clavier.
+
+Windows :
+
+Ctrl + C : Copier
+Ctrl + X : Couper
+Ctrl + V : Coller
+Ctrl + Z : Annuler
+Ctrl + Y : Rétablir
+Ctrl + A : Sélectionner tout
+Ctrl + S : Enregistrer
+Ctrl + P : Imprimer
+Ctrl + F : Rechercher
+Ctrl + N : Nouveau document/fenêtre
+Ctrl + O : Ouvrir un fichier
+Ctrl + W : Fermer la fenêtre/onglet active
+Alt + F4 : Fermer l'application/la fenêtre active
+Windows Key + D : Afficher le bureau / Restaurer les fenêtres
+macOS :
+
+Command (⌘) + C : Copier
+Command (⌘) + X : Couper
+Command (⌘) + V : Coller
+Command (⌘) + Z : Annuler
+Command (⌘) + Shift + Z : Rétablir
+Command (⌘) + A : Tout sélectionner
+Command (⌘) + S : Enregistrer
+Command (⌘) + P : Imprimer
+Command (⌘) + F : Rechercher
+Command (⌘) + N : Nouveau document/fenêtre
+Command (⌘) + O : Ouvrir un fichier
+Command (⌘) + W : Fermer la fenêtre/onglet active
+Command (⌘) + Q : Quitter l'application active
+Command (⌘) + H : Masquer l'application active
+Raccourcis clavier pour navigateurs web (ex. Chrome, Firefox) :
+
+Ctrl + T : Nouvel onglet
+Ctrl + Shift + T : Réouvrir le dernier onglet fermé
+Ctrl + Tab : Passer à l'onglet suivant
+Ctrl + Shift + Tab : Passer à l'onglet précédent
+Ctrl + L (ou F6) : Sélectionner la barre d'adresse
+Ctrl + D : Ajouter un signet
+Ctrl + F5 (ou Shift + F5) : Forcer le rafraîchissement de la page
+Raccourcis clavier pour logiciels de traitement de texte (ex. Microsoft Word) :
+
+Ctrl + B : Mettre en gras
+Ctrl + I : Mettre en italique
+Ctrl + U : Souligner
+Ctrl + S : Enregistrer
+Ctrl + Z : Annuler
+Ctrl + Y : Rétablir
+Ctrl + C : Copier
+Ctrl + X : Couper
+Ctrl + V : Coller
+Ceci n'est qu'une liste partielle et il existe de nombreux autres raccourcis clavier pour différentes applications et systèmes d'exploitation. N'hésitez pas à rechercher des raccourcis spécifiques à vos besoins ou à consulter la documentation de l'application que vous utilisez pour en savoir plus sur ses raccourcis clavier.
