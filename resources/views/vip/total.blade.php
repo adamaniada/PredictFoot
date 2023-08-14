@@ -1,4 +1,4 @@
-{{-- predictions.details.blade.php --}}
+{{-- vip.total.blade.php --}}
 
 @extends('layouts.app')
 
@@ -160,23 +160,23 @@
             <!-- Formulaire de tri -->
             <div class="d-sm-flex justify-content-sm-between align-items-center">
                 <div class="btn-group" role="group" aria-label="Tri">
-                    <form method="GET" action="{{ route('vip.victoire_ou_match_null') }}">
+                    <form method="GET" action="{{ route('vip.total') }}">
                         <input type="hidden" name="filter" value="avant-hier">
                         <button type="submit" class="btn btn-secondary tri-button">Avant Hier</button>
                     </form>
-                    <form method="GET" action="{{ route('vip.victoire_ou_match_null') }}">
+                    <form method="GET" action="{{ route('vip.total') }}">
                         <input type="hidden" name="filter" value="hier">
                         <button type="submit" class="btn btn-secondary tri-button">Hier</button>
                     </form>
-                    <form method="GET" action="{{ route('vip.victoire_ou_match_null') }}">
+                    <form method="GET" action="{{ route('vip.total') }}">
                         <input type="hidden" name="filter" value="aujourd-hui">
                         <button type="submit" class="btn btn-secondary tri-button">Aujourd'hui</button>
                     </form>
-                    <form method="GET" action="{{ route('vip.victoire_ou_match_null') }}">
+                    <form method="GET" action="{{ route('vip.total') }}">
                         <input type="hidden" name="filter" value="demain">
                         <button type="submit" class="btn btn-secondary tri-button">Demain</button>
                     </form>
-                    <form method="GET" action="{{ route('vip.victoire_ou_match_null') }}">
+                    <form method="GET" action="{{ route('vip.total') }}">
                         <input type="hidden" name="filter" value="apres-demain">
                         <button type="submit" class="btn btn-secondary tri-button">Après-demain</button>
                     </form>
@@ -192,7 +192,7 @@
             <div class="card match-card">
                 <div class="card-header predictions-header text-white">
                     <span class="fw-bolder">{{ __('PREDICTIONS : ') }}</span>
-                    {{ __('Victoire ou Match Nul') }}
+                    {{ __('Totla -1.5, +1.5, -2.5, +2.5, -3.5, +3.5') }}
                 </div>
                 <div class="card-body">
                     @if (count($data) > 0)
@@ -207,9 +207,12 @@
                             @foreach ($leagueData as $item)
                                 @php
                                     $isFinished = $item['match_status'] === 'Finished';
-                                    $probHW = $item['prob_HW'];
-                                    $probD = $item['prob_D'];
-                                    $probAW = $item['prob_AW'];
+                                    $probU_1 = $item['prob_U_1'];
+                                    $probO_1 = $item['prob_O_1'];
+                                    $probU = $item['prob_U'];
+                                    $probO = $item['prob_O'];
+                                    $probU_3 = $item['prob_U_3'];
+                                    $probO_3 = $item['prob_O_3'];
                                 @endphp
                                 <div class="match-details d-flex justify-content-between align-items-center">
                                     <span class="text-{{ $isFinished ? 'danger' : 'success' }}">{{ $item['match_status'] }}</span>
@@ -222,10 +225,10 @@
                                         </div>
                                     </div>
                                     <div class="win-probability">
-                                        @foreach (['HW' => $probHW, 'N' => $probD, 'AW' => $probAW] as $outcome => $probability)
+                                        @foreach (['-1.5' => $item['prob_U_1'], '+1.5' => $item['prob_O_1'], '-2.5' => $item['prob_U'], '+2.5' => $item['prob_O'], '-3.5' => $item['prob_U_3'], '+3.5' => $item['prob_O_3']] as $outcome => $probability)
                                             <div class="probability-info">
                                                 <div class="outcome">{{ __($outcome) }}</div>
-                                                <div class="{{ $probability >= ($outcome === 'HW' || $outcome === 'AW' ? 90.00 : 50.00) ? 'text-success fw-bolder' : 'text-danger' }}">
+                                                <div class="{{ $probability >= ($outcome === 'HW' || $outcome === 'AW' ? 90.00 : 90.00) ? 'text-success fw-bolder' : 'text-danger' }}">
                                                     {{ $probability }}
                                                 </div>
                                             </div>

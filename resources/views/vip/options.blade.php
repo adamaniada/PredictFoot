@@ -14,6 +14,12 @@
                         <a href="{{ route("vip.victoire_ou_match_null") }}" class="list-group-item list-group-item-action mb-2">
                             <h5 class="mb-0">Victoire ou Match null</h5>
                         </a>
+                        <a href="{{ route("vip.total") }}" class="list-group-item list-group-item-action mb-2">
+                            <h5 class="mb-0">Total</h5>
+                        </a>
+                        <a href="{{ route("vip.total") }}" class="list-group-item list-group-item-action mb-2">
+                            <h5 class="mb-0">Double chance</h5>
+                        </a>
                     </div>
                 </div>
             </div>

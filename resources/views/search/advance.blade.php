@@ -46,9 +46,9 @@
                                 <div class="form-group">
                                     <label for="predictionsOptions">Proba:</label>
                                     <select id="predictionsPercent" name="predictionsPercent" class="form-select">
-                                        <option value="80.00">80.00</option>
-                                        <option value="90.00">90.00</option>
-                                        <option value="100.00">100.00</option>
+                                        <option value="80.00">{{ __('>= 80.00') }}</option>
+                                        <option value="90.00">{{ __('>= 90.00') }}</option>
+                                        <option value="100.00">{{ __('>= 100.00') }}</option>
                                     </select>
                                 </div>
                             </div>
