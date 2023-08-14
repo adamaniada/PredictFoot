@@ -114,4 +114,27 @@ class VipController extends Controller
 
         return view('vip.total', compact('from', 'to', 'data'));
     }
+
+    public function double_chance(Request $request)
+    {
+        $filter = $request->input('filter');
+        list($from, $to) = $this->getDateRange($filter);
+        $url = "https://apiv3.apifootball.com/?action=get_predictions&from=$from&to=$to&APIkey={$this->APIkey}";
+
+        $api_json_data = $this->apiService->makeApiRequest($url);
+        $errorView = $this->handleApiError($api_json_data);
+        if ($errorView) {
+            return $errorView;
+        }
+
+        $filters = [
+            ['key' => 'prob_HW_D', 'value' => 90.00],
+            ['key' => 'prob_AW_D', 'value' => 90.00],
+            ['key' => 'prob_HW_AW', 'value' => 90.00],
+        ];
+
+        $data = $this->filterPredictions($api_json_data, $filters);
+
+        return view('vip.double_chance', compact('from', 'to', 'data'));
+    }
 }

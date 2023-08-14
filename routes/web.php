@@ -45,6 +45,7 @@ Route::middleware(['throttle:60, 1'])->group(function () {
     Route::get('/vip', [VipController::class, 'options'])->name('vip.options');
     Route::get('/vip/victoire_ou_match_null', [VipController::class, 'victoire_ou_match_null'])->name('vip.victoire_ou_match_null');
     Route::get('/vip/total', [VipController::class, 'total'])->name('vip.total');
+    Route::get('/vip/double_chance', [VipController::class, 'double_chance'])->name('vip.double_chance');
 
     Route::get('/search', [SearchController::class, 'advanced'])->name('search.advanced-form');
     Route::get('/search/result', [SearchController::class, 'result'])->name('search.result');

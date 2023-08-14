@@ -17,7 +17,7 @@
                         <a href="{{ route("vip.total") }}" class="list-group-item list-group-item-action mb-2">
                             <h5 class="mb-0">Total</h5>
                         </a>
-                        <a href="{{ route("vip.total") }}" class="list-group-item list-group-item-action mb-2">
+                        <a href="{{ route("vip.double_chance") }}" class="list-group-item list-group-item-action mb-2">
                             <h5 class="mb-0">Double chance</h5>
                         </a>
                     </div>
