@@ -16,8 +16,6 @@
 
                 <div class="card-body">
                     <div class="intro-text">
-                        {{ $startOfWeek = date('Y-m-d', strtotime('monday this week')) }}
-                        {{ $endOfWeek = date('Y-m-d', strtotime('sunday this week')) }} 
                         <h2>Bienvenue sur notre site de prédictions de football</h2>
                         <p>Ici, vous trouverez des prédictions pour les matchs de football à venir, basées sur des analyses et des statistiques.</p>
                         <p>Nous fournissons des prédictions pour une variété de ligues et de compétitions, afin que vous puissiez prendre des décisions éclairées lors de vos paris ou simplement pour suivre les résultats de vos équipes préférées.</p>

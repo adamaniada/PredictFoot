@@ -32,7 +32,8 @@ class DailyPredictionsController extends Controller
             $predictionLabel = $this->predictionOptionsService->getOptionLabel($option);
 
             $from = date('Y-m-d'); // Today's date
-            $to = date('Y-m-d'); // date('Y-m-d', strtotime('+1 day')); // Tomorrow's date
+            // $to = date('Y-m-d');
+            $to =  date('Y-m-d', strtotime('+1 day')); // Tomorrow's date
 
             $url = "https://apiv3.apifootball.com/?action=get_predictions&from=$from&to=$to&APIkey={$this->APIkey}";
 

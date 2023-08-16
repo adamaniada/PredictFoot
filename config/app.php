@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://predict-foot.vercel.app/'),
 
     'asset_url' => env('ASSET_URL'),
 
@@ -183,7 +183,6 @@ return [
 
         // ...
         App\Providers\ApiServiceServiceProvider::class,
-        Torann\GeoIP\GeoIPServiceProvider::class,
     ])->toArray(),
 
     /*
