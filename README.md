@@ -41,4 +41,4 @@ Pour toute question, suggestion ou demande de partenariat, n'hésitez pas à nou
 
 ## Licence
 
-git add . && git commit -m "1.0.2" && git branch -M main && git push -u origin main
+git add . && git commit -m "1.0.4" && git branch -M main && git push -u origin main
