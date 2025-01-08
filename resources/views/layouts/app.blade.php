@@ -9,101 +9,175 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.bunny.net/css?family=Nunito:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
+        /* Global Styles */
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
+        .dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
         }
 
-        .b-example-divider {
-            height: 3rem;
-            background-color: rgba(0, 0, 0, .1);
-            border: solid rgba(0, 0, 0, .15);
-            border-width: 1px 0;
-            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        .navbar {
+            background: linear-gradient(135deg, #27547D, #35495E);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .b-example-vr {
-            flex-shrink: 0;
-            width: 1.5rem;
-            height: 100vh;
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white !important;
         }
 
-        .bi {
-            vertical-align: -.125em;
-            fill: currentColor;
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s;
         }
 
-        .nav-scroller {
-            position: relative;
-            z-index: 2;
-            height: 2.75rem;
-            overflow-y: hidden;
-        }
-
-        .nav-scroller .nav {
-            display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 1rem;
-            margin-top: -1px;
-            overflow-x: auto;
-            text-align: center;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        /* Custom color for the navigation bar */
-        .bg-custom {
-            /* background-color: #35495E; */
-            background-color: #27547D;
+        .nav-link:hover {
             color: white;
         }
 
-        /* Custom shadow for the navigation bar */
-        .shadow-sm {
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        .hero {
+            text-align: center;
+            padding: 5rem 0;
+            background: url('https://source.unsplash.com/1600x900/?technology') no-repeat center center/cover;
+            color: white;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 {
+            position: relative;
+            font-size: 3.5rem;
+            font-weight: 700;
+            z-index: 1;
+        }
+
+        .hero p {
+            position: relative;
+            font-size: 1.25rem;
+            z-index: 1;
+        }
+
+        .btn-cta {
+            background-color: #35495E;
+            border: none;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.125rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn-cta:hover {
+            background-color: #2c3e50;
+            transform: scale(1.05);
+        }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 5px;
+            background-color: #27547D;
+            z-index: 1030;
+            transition: width 0.2s;
+        }
+
+        .footer {
+            background-color: #35495E;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+
+        .footer a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: white;
         }
     </style>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
-
-
-    <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
-    @stack('styles') <!-- Inclure les styles ici -->
+    @stack('styles')
 </head>
 <body>
     <div id="app">
+        <!-- Scroll Progress -->
+        <div class="scroll-progress" id="scrollProgress"></div>
+
+        <!-- Navbar -->
         @include('layouts.include.navbar')
 
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container position-relative">
+                <h1>Transformez vos idées avec {{ config('app.name', 'Laravel') }}</h1>
+                <p>Découvrez des solutions numériques innovantes pour votre entreprise.</p>
+                <a href="#services" class="btn btn-cta">Explorez nos services</a>
+            </div>
+        </section>
+
+        <!-- Main Content -->
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                @yield('content')
+            </div>
         </main>
-        @include('layouts.include.footer')
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; {{ date('Y') }} {{ config('app.name', 'Laravel') }}. Tous droits réservés.</p>
+            <p><a href="#">Politique de confidentialité</a> | <a href="#">Conditions d utilisation</a></p>
+        </footer>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="http://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=JtAz3I6efqiPHP43xyBHgmxGsBof_ess_EOHqBh4dzNLQfUZni3Otzz1jFfRjuaDqxCx_f-ZrkrEJSnUfKrenWBQqtiFJzgzZ68eNMS1bxLDqDH26O3M0WUEJaa5puDt" charset="UTF-8"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Inclure les scripts ici -->
+    <script>
+        // Scroll Progress Bar
+        const scrollProgress = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = `${scrollPercent}%`;
+        });
+
+        // Dark Mode Toggle
+        const body = document.body;
+        const toggleDarkMode = () => body.classList.toggle('dark-mode');
+    </script>
+
     @stack('scripts')
-
 </body>
 </html>
