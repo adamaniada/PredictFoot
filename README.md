@@ -41,8 +41,4 @@ Pour toute question, suggestion ou demande de partenariat, n'hésitez pas à nou
 
 ## Licence
 
-Notre site de prédictions de scores de matchs de football est un logiciel open-source sous licence [MIT](https://opensource.org/licenses/MIT). Vous êtes libre de le modifier, de le distribuer et de l'utiliser à des fins commerciales ou non commerciales, tout en respectant les termes de la licence.
-
-Rejoignez-nous pour une expérience passionnante de prédictions de football !
-
-git add . && git commit -m "ok" && git branch -M main && git push -u origin main
+git add . && git commit -m "1.0.0" && git branch -M main && git push -u origin main
