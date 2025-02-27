@@ -6,7 +6,7 @@ use App\Services\ApiService;
 use App\Services\PredictionOptionsService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
-use DateTime; // Importez la classe DateTime
+use DateTime;
 
 class SearchController extends Controller
 {
@@ -57,11 +57,7 @@ class SearchController extends Controller
 
             if (isset($api_json_data['error'])) {
                 // Gérer l'erreur, afficher un message, etc.
-                return view('predictions.error', ['message' => 'Échec de la récupération des données depuis l\'API.']);
-            }
-
-            if (empty($api_json_data)) {
-                return view('predictions.error', ['message' => 'Aucune donnée disponible pour les prédictions.']);
+                return view('predictions.error', ['message' => 'Échec de la récupération des données depuis l\'API : ' . $api_json_data['error']]);
             }
 
             /// Filtrer les données en fonction de l'option spécifiée et du pourcentage de prédictions

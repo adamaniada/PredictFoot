@@ -39,6 +39,7 @@
                                     <select id="predictionsPercent" name="predictionsPercent" class="form-select shadow-sm">
                                         <option value="80.00">{{ __('>= 80.00') }}</option>
                                         <option value="90.00">{{ __('>= 90.00') }}</option>
+                                        <option value="95.00">{{ __('>= 95.00') }}</option>
                                         <option value="100.00">{{ __('>= 100.00') }}</option>
                                     </select>
                                 </div>

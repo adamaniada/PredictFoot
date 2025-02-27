@@ -21,7 +21,7 @@
         "APP_DEBUG": "false",
         "APP_URL": "https://predict-foot.vercel.app",
         "APP_KEY": "base64:+hoFEdz8HchLPps3UG1Cqehy5CPSxSzvfYS/AGW20zA=",
-        "API_KEY": "80409a7a589f32b4e4b1c103bba4d54ed02519833ce4dba77ded70c033c230fa",
+        "API_KEY": "d5565385d88c06eb1f8e410c4c2ce7f45a98c655ab6f54730903cd98173783e4",
         "DB_CONNECTION": "sqlite",
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
